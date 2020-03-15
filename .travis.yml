@@ -19,12 +19,6 @@ before_deploy:
   - mkdir -p deploy
   - mv springboot-webservice.zip deploy/springboot-webservice.zip
 
-# CI 실행 완료시 메일로 알람
-#notifications:
-#  email:
-#    recipients:
-#      - ydy1722@gmail.com
-
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
@@ -52,3 +46,8 @@ deploy:
     on:
       repo: gomsk/spring-webservice #Githubxx 주소
       branch: master
+
+notifications:
+ email:
+   recipients:
+      - ydy1722@gmail.com
